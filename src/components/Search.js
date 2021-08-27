@@ -2,7 +2,7 @@ import React from "react";
 
 const Search = ({ onChange }) => {
   return (
-    <div className="form-group row">
+    <div className="form-group">
       <div className="col-xs-4">
         <input
           onChange={onChange}
