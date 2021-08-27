@@ -53,19 +53,29 @@ const App = () => {
     );
   };
 
-  const filter = (e) => {
-    const search = e.target.value;
+  const filterbyname = (e) => {
+    const searchtermByName = e.target.value;
     const filtercontactsname = document.querySelectorAll("h3");
     filtercontactsname.forEach((contact) => {
-      if (contact.innerText.toLowerCase().includes(search.toLowerCase())) {
+      if (
+        contact.innerText.toLowerCase().includes(searchtermByName.toLowerCase())
+      ) {
         contact.parentElement.style.display = "block";
       } else {
         contact.parentElement.style.display = "none";
       }
     });
+  };
+
+  const filterbynumber = (e) => {
+    const searchtermByNumber = e.target.value;
     const filtercontactsnumber = document.querySelectorAll("p");
     filtercontactsnumber.forEach((contact) => {
-      if (contact.innerText.toLowerCase().includes(search.toLowerCase())) {
+      if (
+        contact.innerText
+          .toLowerCase()
+          .includes(searchtermByNumber.toLowerCase())
+      ) {
         contact.parentElement.style.display = "block";
       } else {
         contact.parentElement.style.display = "none";
@@ -80,7 +90,8 @@ const App = () => {
         onAdd={() => setshowAddContact(!showAddContact)}
         showAdd={showAddContact}
       />
-      <Search onChange={filter} />
+      <Search onChange={filterbyname} />
+      <Search onChange={filterbynumber} />
 
       {showAddContact && <AddContact onAdd={addContact} />}
       {contacts.length > 0 ? (
