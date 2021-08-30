@@ -89,8 +89,7 @@ const App = () => {
         onAdd={() => setshowAddContact(!showAddContact)}
         showAdd={showAddContact}
       />
-      <Search onChange={filterbyname} />
-      <Search onChange={filterbynumber} />
+      <Search onChangeByName={filterbyname} onChangeByNumber={filterbynumber} />
 
       {showAddContact && <AddContact onAdd={addContact} />}
       {contacts.length > 0 ? (
